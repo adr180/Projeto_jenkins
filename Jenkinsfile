@@ -9,7 +9,7 @@ pipeline
   //b declarando variaveis
   environment 
   { 
-      CC = docker.build("image_teste3")
+    CC = 'clang'
   }
 
   agent any  
@@ -50,6 +50,14 @@ pipeline
     {
       echo "Variavel CC: ${CC}"
     }    
+   }
+
+   stage ('Iniciando imagem + Container')
+   {
+    steps
+    {
+      docker { image 'node:18.17.1-alpine3.18' }
+    }
    }
   
   }
