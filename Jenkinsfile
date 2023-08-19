@@ -46,7 +46,10 @@ pipeline
    
    stage ('Teste com variaveis')
    {
-    echo "Variavel CC: ${GIT_BRANCH}"
+    steps 
+    {
+      echo "Variavel CC: ${GIT_BRANCH}"
+    }    
    }
   
   }
