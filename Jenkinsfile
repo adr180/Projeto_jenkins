@@ -24,6 +24,7 @@ pipeline
     {
       steps 
       {
+       echo 'Texto que quiser'
        echo "Segundo processo funcionando ${BUILD_NUMBER}"
        sh 'ls'
       }
