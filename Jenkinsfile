@@ -41,12 +41,14 @@ pipeline
        echo "O nome do branch no GitHub: ${GIT_BRANCH}"                  //b O nome do branch em que o pipeline está sendo executado       
        sh 'ls'
       }
-
-      steps 
-      {
-        echo "O nome do branch no GitHub: ${CC}"
-      }
     }
+   
+   
+   stage ('Teste com variaveis')
+   {
+    echo "Variavel CC: ${GIT_BRANCH}"
+   }
+  
   }
 }
 
