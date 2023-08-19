@@ -20,7 +20,7 @@ pipeline
     }
     
     
-    stage ('')
+    stage ('Testando variaveis de ambiente')
     {
       steps 
       { //b Algumas variavies de ambiente
@@ -32,7 +32,7 @@ pipeline
        echo "Jenkins está instalado em:  ${JENKINS_HOME}"                //b O diretório onde o Jenkins está instalado
        echo "página de detalhes do trabalho: ${JOB_URL}"                 //b A URL para a página de detalhes do trabalho (projeto) no Jenkins.
        echo "Hash do commit recente ${GIT_COMMIT}"                       //b O hash do commit mais recente
-       echo "Quarto processo BUILD_URL ${GIT_BRANCH}"                    //b O nome do branch em que o pipeline está sendo executado
+       echo "O nome do branch no GitHub ${GIT_BRANCH}"                   //b O nome do branch em que o pipeline está sendo executado
        sh 'ls'
       }
     }
