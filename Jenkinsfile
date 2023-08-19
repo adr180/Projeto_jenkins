@@ -6,6 +6,7 @@
 pipeline
 {
   agent any
+  c = 'testando variavel'
   stages
   {
     stage ('Criando a imagem Docker')
@@ -32,6 +33,8 @@ pipeline
        echo "página de detalhes do trabalho: ${JOB_URL}"                 //b A URL para a página de detalhes do trabalho (projeto) no Jenkins.
        echo "Hash do commit recente: ${GIT_COMMIT}"                       //b O hash do commit mais recente
        echo "O nome do branch no GitHub: ${GIT_BRANCH}"                   //b O nome do branch em que o pipeline está sendo executado
+
+       echo "O nome do branch no GitHub: ${c}"
        sh 'ls'
       }
     }
