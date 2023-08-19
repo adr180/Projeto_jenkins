@@ -6,7 +6,12 @@
 pipeline
 {
   agent any
-  c = 'testando variavel'
+    environment 
+    { 
+        CC = 'clang'
+    }
+
+
   stages
   {
     stage ('Criando a imagem Docker')
@@ -34,7 +39,7 @@ pipeline
        echo "Hash do commit recente: ${GIT_COMMIT}"                       //b O hash do commit mais recente
        echo "O nome do branch no GitHub: ${GIT_BRANCH}"                   //b O nome do branch em que o pipeline está sendo executado
 
-       echo "O nome do branch no GitHub: ${c}"
+       echo "O nome do branch no GitHub: ${CC}"
        sh 'ls'
       }
     }
