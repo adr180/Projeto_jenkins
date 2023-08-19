@@ -13,7 +13,6 @@ pipeline
           script
           {
             imagem = docker.build("image_teste")
-            imagem = docker.build("image_teste2")
           }
         }      
       }
@@ -23,6 +22,7 @@ pipeline
         steps 
         {
          echo 'Segundo processo funcionando'
+         sh 'ls'
         }
       }
     }
