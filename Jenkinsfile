@@ -9,7 +9,7 @@ pipeline
   //b declarando variaveis
   environment 
   { 
-      CC = 'clang'
+      CC = docker.build("image_teste3")
   }
 
   agent any  
