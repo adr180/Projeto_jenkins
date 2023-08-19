@@ -4,14 +4,15 @@
 
 
 pipeline
-{
-  agent any
-    environment 
-    { 
-        CC = 'clang'
-    }
+{    
+  
+  //b declarando variaveis
+  environment 
+  { 
+      CC = 'clang'
+  }
 
-
+  agent any  
   stages
   {
     stage ('Criando a imagem Docker')
@@ -30,17 +31,20 @@ pipeline
     {
       steps 
       { //b Algumas variavies de ambiente
-       echo "número da construção atual: ${BUILD_NUMBER}"                 //b O número da construção atual.
-       echo "Nome do projeto(Projeto): ${JOB_NAME}"                       //b O nome do trabalho (nome do projeto no Jenkins)
-       echo "Tag Exclusiva: ${BUILD_TAG}"                            //b Uma tag exclusiva para a construção, geralmente no formato "jenkins-${JOB_NAME}-${BUILD_NUMBER}"
-       echo "página de detalhes da construção: ${BUILD_URL}"              //b A URL para a página de detalhes da construção no Jenkins
+       echo "número da construção atual: ${BUILD_NUMBER}"                //b O número da construção atual.
+       echo "Nome do projeto(Projeto): ${JOB_NAME}"                      //b O nome do trabalho (nome do projeto no Jenkins)
+       echo "Tag Exclusiva: ${BUILD_TAG}"                                //b Uma tag exclusiva para a construção, geralmente no formato "jenkins-${JOB_NAME}-${BUILD_NUMBER}"
+       echo "página de detalhes da construção: ${BUILD_URL}"             //b A URL para a página de detalhes da construção no Jenkins
        echo "Jenkins está instalado em:  ${JENKINS_HOME}"                //b O diretório onde o Jenkins está instalado
        echo "página de detalhes do trabalho: ${JOB_URL}"                 //b A URL para a página de detalhes do trabalho (projeto) no Jenkins.
-       echo "Hash do commit recente: ${GIT_COMMIT}"                       //b O hash do commit mais recente
-       echo "O nome do branch no GitHub: ${GIT_BRANCH}"                   //b O nome do branch em que o pipeline está sendo executado
-
-       echo "O nome do branch no GitHub: ${CC}"
+       echo "Hash do commit recente: ${GIT_COMMIT}"                      //b O hash do commit mais recente
+       echo "O nome do branch no GitHub: ${GIT_BRANCH}"                  //b O nome do branch em que o pipeline está sendo executado       
        sh 'ls'
+      }
+
+      steps 
+      {
+        echo "O nome do branch no GitHub: ${CC}"
       }
     }
   }
