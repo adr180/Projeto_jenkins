@@ -16,14 +16,5 @@ pipeline
           }
         }      
       }
-
-      stage ('executando comando')
-      {
-        steps
-        {
-          sh 'ls'
-        }
-        
-      }
     }
 }
