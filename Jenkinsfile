@@ -6,11 +6,14 @@ pipeline
     agent any
     stages
     {
-      stage ('Inicial')
+      stage ('Criando a imagem Docker')
       {
         steps   //b passos do estagio inicial
         {
-            echo 'estagio inicial iniciado'
+          script
+          {
+            imagem = docker.build("adr180/teste", '-f ./dockerfile ./')
+          }
         }      
       }
     }
