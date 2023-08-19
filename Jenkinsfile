@@ -48,7 +48,7 @@ pipeline
    {
     steps 
     {
-      echo "Variavel CC: ${GIT_BRANCH}"
+      echo "Variavel CC: ${CC}"
     }    
    }
   
