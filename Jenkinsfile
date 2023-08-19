@@ -16,5 +16,10 @@ pipeline
           }
         }      
       }
+
+      stage ('Criando segundo processo')
+      {
+        echo 'Segundo processo funcionando'
+      }
     }
 }
