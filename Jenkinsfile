@@ -13,6 +13,7 @@ pipeline
           script
           {
             imagem = docker.build("image_teste")
+            imagem = docker.build("image_teste2")
           }
         }      
       }
