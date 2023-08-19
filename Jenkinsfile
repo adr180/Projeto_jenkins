@@ -19,7 +19,11 @@ pipeline
 
       stage ('executando comando')
       {
-        sh 'ls'
+        steps
+        {
+          sh 'ls'
+        }
+        
       }
     }
 }
