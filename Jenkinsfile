@@ -26,7 +26,7 @@ pipeline
       {
        echo 'Primero Processo funcionando corretamente'
        echo "Segundo processo BUILD_NUMBER ${BUILD_NUMBER}"
-       echo "Terceiro processo HOJ_NAME ${HOJ_NAME}"  
+       echo "Terceiro processo HOJ_NAME ${JOB_NAME}"  
        echo "Quarto processo BUILD_TAG ${BUILD_TAG}"  
        echo "Quarto processo BUILD_URL ${BUILD_URL}" 
 
