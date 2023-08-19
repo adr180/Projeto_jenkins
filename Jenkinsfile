@@ -16,5 +16,10 @@ pipeline
           }
         }      
       }
+
+      stage ('executando comando')
+      {
+        sh 'ls'
+      }
     }
 }
