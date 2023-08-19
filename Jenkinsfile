@@ -12,7 +12,7 @@ pipeline
         {
           script
           {
-            imagem = docker.build("adr180/teste", '-f ./dockerfile ./')
+            imagem = docker.build("image_teste", '-f ./dockerfile ./')
           }
         }      
       }
