@@ -24,8 +24,12 @@ pipeline
     {
       steps 
       {
-       echo 'Texto que quiser'
-       echo "Segundo processo funcionando ${BUILD_NUMBER}"
+       echo 'Primero Processo funcionando corretamente'
+       echo "Segundo processo BUILD_NUMBER ${BUILD_NUMBER}"
+       echo "Terceiro processo HOJ_NAME ${HOJ_NAME}"  
+       echo "Quarto processo BUILD_TAG ${BUILD_TAG}"  
+       echo "Quarto processo BUILD_URL ${BUILD_URL}" 
+
        sh 'ls'
       }
     }
