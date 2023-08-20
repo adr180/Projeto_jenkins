@@ -25,7 +25,7 @@ pipeline
          withCredentials([usernamePassword(credentialsId: 'teste', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) 
           {
            echo "Username: ${DOCKER_USERNAME}"
-           //app.push()
+           app.push()
           }                          
         }
       }
