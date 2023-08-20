@@ -19,7 +19,7 @@ pipeline
       {
         script
         {
-          def app = docker.build ("adr180/app")                                 
+                                          
         }
       }
     }
@@ -48,12 +48,13 @@ pipeline
       }    
     }
 
-    stage ('DEPLOY')
+    stage ('Push image docker hub')
     {
       steps 
       {
         script 
         {
+          def app = docker.build ("adr180/app") 
           docker.withRegistry('https://registry.hub.docker.com', 'teste') 
           {         
            app.push("${BUILD_TAG}")
