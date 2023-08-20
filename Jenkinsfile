@@ -59,7 +59,8 @@ pipeline
     {
       steps 
       {
-        sh "sudo docker push adr180/app:v_${BUILD_TAG}"
+        echo 'deploy efetuado'
+        echo "usuario: ${DOCKER_USERNAME}"
       }    
     }
   }
