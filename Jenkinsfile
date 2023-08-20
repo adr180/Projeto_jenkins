@@ -26,7 +26,7 @@ pipeline
           // {
           //   #app.push("${DOCKER_USERNAME}", "${DOCKER_PASSWORD}")
           // }  
-          sh "sudo docker push adr180/app:v_${BUILD_TAG}"
+          //sh "sudo docker push adr180/app:v_${BUILD_TAG}"
         }
       }      
     }
@@ -54,6 +54,16 @@ pipeline
         echo "Variável CC: ${CC}"
       }    
     }
+
+    stage ('DEPLOY')
+    {
+      steps 
+      {
+        sh "sudo docker push adr180/app:v_${BUILD_TAG}"
+      }    
+    }
+
+
   }
 }
 
