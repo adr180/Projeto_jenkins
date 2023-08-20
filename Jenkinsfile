@@ -19,11 +19,7 @@ pipeline
       {
         script
         {
-          def app = docker.build ("adr180/app")          
-          docker.withRegistry('https://registry.hub.docker.com', 'teste') 
-          {         
-           app.push("${BUILD_TAG}")
-          }                                   
+          def app = docker.build ("adr180/app")                                 
         }
       }
     }
@@ -58,7 +54,11 @@ pipeline
       {
         script 
         {
-          echo 'deploy'
+          docker.withRegistry('https://registry.hub.docker.com', 'teste') 
+          {         
+           app.push("${BUILD_TAG}")
+          } 
+          echo 'deploy Concluido!'
         }
       }    
     }
