@@ -24,12 +24,11 @@ pipeline
           //Autenticação no Docker Hub
           withCredentials([usernamePassword(credentialsId: 'ocker-hub-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) 
           {
-            #app.push("${DOCKER_USERNAME}", "${DOCKER_PASSWORD}")
-          }  
-          sh "sudo docker push adr180/app:v_${BUILD_TAG}"
+            app.push("${DOCKER_USERNAME}", "${DOCKER_PASSWORD}")
+          }           
         }
-      }      
-    }
+      }       
+    } 
     
     stage ('Testando variáveis de ambiente')
     {
