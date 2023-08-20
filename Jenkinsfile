@@ -19,12 +19,11 @@ pipeline
       {
         script
         {
-          def app = docker.build "adr180/app:v_${BUILD_TAG}"
-          
+          def app = docker.build "adr180/app:v_${BUILD_TAG}"          
           //Autenticação no Docker Hub
          withCredentials([usernamePassword(credentialsId: 'testessh', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) 
           {
-           echo "Username: ${DOCKER_USERNAME}"
+           //echo "Username: ${DOCKER_USERNAME}"
            app.push()
           }                          
         }
