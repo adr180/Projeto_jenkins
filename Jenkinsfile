@@ -25,7 +25,7 @@ pipeline
           // Autenticação no Docker Hub
           withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) 
           {
-           newApp.push("adr180", "Pwd121212")
+           newApp.push()
           }  
         }
       }      
