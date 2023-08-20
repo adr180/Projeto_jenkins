@@ -23,8 +23,10 @@ pipeline
         {          
           app = docker.build("adr180/app:v_${BUILD_TAG}") //b cria uma imagem 'image_teste com as tags'
           // Autenticação no Docker Hub
-          withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
-          newApp.push("${DOCKER_USERNAME}", "${DOCKER_PASSWORD}")
+          withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) 
+          {
+           newApp.push("${DOCKER_USERNAME}", "${DOCKER_PASSWORD}")
+          }  
         }
       }      
     }
