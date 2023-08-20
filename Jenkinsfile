@@ -22,7 +22,7 @@ pipeline
           def app = docker.build ("adr180/app")          
           docker.withRegistry('https://registry.hub.docker.com', 'teste') 
           {         
-           app.push('${BUILD_TAG}')
+           app.push("${BUILD_TAG}")
           }                                   
         }
       }
