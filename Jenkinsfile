@@ -59,7 +59,7 @@ pipeline
     {
       steps 
       {
-        sh "sudo docker push adr180/app:v_${BUILD_TAG}"
+        sudo sh "docker push adr180/app:v_${BUILD_TAG}"
       }    
     }
 
