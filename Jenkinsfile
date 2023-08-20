@@ -19,7 +19,7 @@ pipeline
       {
         script
         {
-                                          
+          echo 'testando'                                
         }
       }
     }
