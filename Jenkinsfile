@@ -25,7 +25,7 @@ pipeline
          withCredentials([usernamePassword(credentialsId: 'ocker-hub-credentials', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) 
           {
            def app = docker.build "adr180/app:v_${BUILD_TAG}"
-           app.push()
+           app.push('adr180','Pwd121212')
           }                          
         }
       }
