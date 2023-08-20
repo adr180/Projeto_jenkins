@@ -21,12 +21,12 @@ pipeline
         {           
           docker.build "adr180/app:v_${BUILD_TAG}"
           
-          // Autenticação no Docker Hub
-          // withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) 
-          // {
-          //   #app.push("${DOCKER_USERNAME}", "${DOCKER_PASSWORD}")
-          // }  
-          //sh "sudo docker push adr180/app:v_${BUILD_TAG}"
+          //Autenticação no Docker Hub
+          withCredentials([usernamePassword(credentialsId: 'ocker-hub-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) 
+          {
+            #app.push("${DOCKER_USERNAME}", "${DOCKER_PASSWORD}")
+          }  
+          sh "sudo docker push adr180/app:v_${BUILD_TAG}"
         }
       }      
     }
@@ -59,11 +59,9 @@ pipeline
     {
       steps 
       {
-        sudo sh "docker push adr180/app:v_${BUILD_TAG}"
+        sh "sudo docker push adr180/app:v_${BUILD_TAG}"
       }    
     }
-
-
   }
 }
 
