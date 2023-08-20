@@ -51,15 +51,6 @@ pipeline
       echo "Variavel CC: ${CC}"
     }    
    }
-
-   stage ('Iniciando imagem + Container')
-   {
-    steps
-    {
-      
-    }
-   }
-  
   }
 }
 
