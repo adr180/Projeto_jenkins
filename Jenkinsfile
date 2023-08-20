@@ -20,12 +20,6 @@ pipeline
         script
         {
           def app = docker.build ("adr180/app")          
-          //Autenticação no Docker Hub
-          //withCredentials([usernamePassword(credentialsId: 'teste', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) 
-          //{
-           //echo "Username: ${DOCKER_USERNAME}"
-           //app.push()
-          //}
           docker.withRegistry('https://registry.hub.docker.com', 'teste') 
           {         
            app.push('${BUILD_TAG}')
