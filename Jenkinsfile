@@ -21,6 +21,7 @@ pipeline
       {
         script
         {
+          git 'https://github.com/adr180/Projeto_jenkins.git' // checks out Dockerfile & Makefile
           app = docker.build("image_teste:${BUILD_TAG}") //b cria uma imagem 'image_teste com as tags'
           app.push()
         }
