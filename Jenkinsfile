@@ -21,7 +21,7 @@ pipeline
       {
         script
         {
-          docker.build("image_teste3") //b cria uma imagem 'image_teste3'
+          docker.build("image_teste:${BUILD_TAG}") //b cria uma imagem 'image_teste3'
         }
       }      
     }
