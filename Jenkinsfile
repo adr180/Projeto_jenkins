@@ -60,7 +60,7 @@ pipeline
       steps 
       {
         echo 'deploy efetuado'
-        echo ${DOCKER_USERNAME}
+        echo "${DOCKER_USERNAME}"
       }    
     }
   }
