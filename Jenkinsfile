@@ -19,12 +19,12 @@ pipeline
       {
         script
         {
-          def app = docker.build "adr180/app:v_${env.BUILD_TAG}"          
+          def app = docker.build ("adr180/app")          
           //Autenticação no Docker Hub
-         withCredentials([usernamePassword(credentialsId: 'teste', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) 
+          withCredentials([usernamePassword(credentialsId: 'teste', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) 
           {
            //echo "Username: ${DOCKER_USERNAME}"
-           app.push()
+           //app.push()
           }                          
         }
       }
@@ -58,7 +58,13 @@ pipeline
     {
       steps 
       {
-        echo 'deploy efetuado'        
+        script 
+        {
+         docker.withRegistry('https://registry.hub.docker.com', 'teste') 
+         {        
+          app.push('${env.BUILD_TAG}')
+         }  
+        }
       }    
     }
   }
