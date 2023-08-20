@@ -22,7 +22,7 @@ pipeline
           def app = docker.build "adr180/app:v_${BUILD_TAG}"
           
           //Autenticação no Docker Hub
-          withCredentials([usernamePassword(credentialsId: 'teste', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]){
+          withCredentials([usernamePassword(credentialsId: 'teste2', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]){
            app.push("${DOCKER_USERNAME}", "${DOCKER_PASSWORD}")
           }                          
         }
