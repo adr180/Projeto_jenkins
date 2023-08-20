@@ -20,10 +20,11 @@ pipeline
       steps   //b passos do estagio inicial
       {
         script
-        {
-          git 'https://github.com/adr180/Projeto_jenkins.git' // checks out Dockerfile & Makefile
-          app = docker.build("image_teste:${BUILD_TAG}") //b cria uma imagem 'image_teste com as tags'
-          app.push()
+        {          
+          app = docker.build("adr180/app:v_${BUILD_TAG}") //b cria uma imagem 'image_teste com as tags'
+          // Autenticação no Docker Hub
+          withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+          newApp.push("${DOCKER_USERNAME}", "${DOCKER_PASSWORD}")
         }
       }      
     }
