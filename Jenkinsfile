@@ -7,23 +7,12 @@ pipeline
 {    
   environment 
   { 
-    CC = 'clang'
+    CC = 'clang'  //b Esta variavel CC fica disponivel em todo o codigo do pipeline Ex: echo "Variável CC: ${CC}"
   }
 
   agent any  
   stages
-  {
-    stage ('Criando a imagem Docker')
-    {
-      steps
-      {
-        script
-        {
-          echo 'testando'                                
-        }
-      }
-    }
-    
+  {   
     stage ('Testando variáveis de ambiente')
     {
       steps 
@@ -40,26 +29,19 @@ pipeline
       }
     }
    
-    stage ('Teste com variáveis')
-    {
-      steps 
-      {
-        echo "Variável CC: ${CC}"
-      }    
-    }
-
+ 
     stage ('Push image docker hub')
     {
       steps 
       {
         script 
-        {
-          def app = docker.build ("adr180/app") 
+        {          
+          def app = docker.build ("adr180/app")   //b criar uma imagem Docker com o nome "adr180/app"
+          //b  autenticar-se no registro do Docker Hub usando as credenciais definidas no Jenkins (teste). Isso é necessário para poder enviar a imagem para o Docker Hub.
           docker.withRegistry('https://registry.hub.docker.com', 'teste') 
           {         
-           app.push("${BUILD_TAG}")
-          } 
-          echo 'deploy Concluido!'
+           app.push("${BUILD_TAG}")  //b  enviar a imagem Docker criada anteriormente para o Docker Hub
+          }           
         }
       }    
     }
